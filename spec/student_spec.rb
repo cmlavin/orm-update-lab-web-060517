@@ -1,5 +1,5 @@
 require "spec_helper"
-
+require 'pry'
 describe "Student" do
 
   let(:josh) {Student.new("Josh", "9th")}
@@ -69,6 +69,7 @@ describe "Student" do
 
   describe "#create" do
     it 'creates a student object with name and grade attributes' do
+      #binding.pry
       Student.create("Sally", "10th")
       expect(DB[:conn].execute("SELECT * FROM students")).to eq([[1, "Sally", "10th"]])
     end
